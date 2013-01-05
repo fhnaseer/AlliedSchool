@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="AlliedSchool.Views.WelcomePage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="600">
+    <DockPanel>
+        <StackPanel FlowDirection="RightToLeft" DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <Button Content="Close" Command="{Binding BackCommand}" />
+        </StackPanel>
+        <Label Margin="5" Content="Allied School, Rajanpur." DockPanel.Dock="Top"/>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <Button Content="Add Student" Command="{Binding AddStudentCommand}" />
+                <Button Content="View Students" Command="{Binding ViewStudentsCommand}" />
+            </StackPanel>
+            <StackPanel>
+                <Button Content="Add Class" Command="{Binding AddClassCommand}" />
+                <Button Content="View Class" Command="{Binding ViewClassesCommand}" />
+            </StackPanel>
+            <StackPanel>
+                <Button Content="Add Item" Command="{Binding AddItemCommand}" />
+                <Button Content="View Stock" Command="{Binding ViewStockCommand}" />
+            </StackPanel>
+            <StackPanel>
+                <Button Content="Purchase Item" Command="{Binding PurchaseItemCommand}" />
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+</UserControl>
