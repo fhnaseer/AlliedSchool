@@ -44,6 +44,11 @@ namespace AlliedSchool.ViewModels
                 }
                 return _studentsList;
             }
+            set
+            {
+                _studentsList = value;
+                OnPropertyChanged("StudentsList");
+            }
         }
 
         private Student _selectedStudent;
@@ -58,6 +63,9 @@ namespace AlliedSchool.ViewModels
                     FirstName = (_selectedStudent == null) ? string.Empty : _selectedStudent.FirstName;
                     LastName = (_selectedStudent == null) ? string.Empty : _selectedStudent.LastName;
                     SelectedClass = _selectedStudent.Standard;
+                    FatherName = _selectedStudent.FatherName;
+                    Address = _selectedStudent.Address;
+                    PhoneNumber = _selectedStudent.PhoneNumber;
                     OnPropertyChanged("SelectedStudent");
                 }
             }
@@ -114,6 +122,38 @@ namespace AlliedSchool.ViewModels
             }
         }
 
+        private string _fatherName;
+        public string FatherName
+        {
+            get { return _fatherName; }
+            set
+            {
+                _fatherName = value;
+                OnPropertyChanged("FatherName");
+            }
+        }
+
+        private string _address;
+        public string Address
+        {
+            get { return _address; }
+            set
+            {
+                _address = value;
+                OnPropertyChanged("Address");
+            }
+        }
+
+        private string _phoneNumber;
+        public string PhoneNumber
+        {
+            get { return _phoneNumber; }
+            set
+            {
+                _phoneNumber = value;
+                OnPropertyChanged("PhoneNumber");
+            }
+        }
         #region CommandBindings
         private ICommand _updateCommand;
         public ICommand UpdateCommand
@@ -146,11 +186,14 @@ namespace AlliedSchool.ViewModels
             SelectedStudent.FirstName = FirstName;
             SelectedStudent.LastName = LastName;
             SelectedStudent.FullName = FirstName + " " + LastName;
+            SelectedStudent.FatherName = FatherName;
+            SelectedStudent.Address = Address;
+            SelectedStudent.PhoneNumber = PhoneNumber;
+            SelectedStudent.FamilyID = FatherName + Address;
             SelectedStudent.StandardId = SelectedClass.Id;
             SchoolContext.SaveChanges();
             OnPropertyChanged("SelectedStudent");
         }
         #endregion
-
     }
 }

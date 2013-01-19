@@ -32,6 +32,10 @@
     <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="StandardId" Type="int" Nullable="false" />
     <Property Name="FullName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FatherName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FamilyID" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ShoppingItems">
     <Key>
@@ -130,6 +134,10 @@
           <NavigationProperty Name="Standard" Relationship="AlliedSchoolModel.StandardStudent" FromRole="Student" ToRole="Standard" />
           <Property Type="Int32" Name="StandardId" Nullable="false" />
           <Property Type="String" Name="FullName" Nullable="false" />
+          <Property Type="String" Name="FatherName" Nullable="false" />
+          <Property Type="String" Name="Address" Nullable="false" />
+          <Property Type="String" Name="PhoneNumber" Nullable="false" />
+          <Property Type="String" Name="FamilyID" Nullable="false" />
         </EntityType>
         <EntityType Name="ShoppingItem">
           <Key>
@@ -213,6 +221,10 @@
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="StandardId" ColumnName="StandardId" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="FamilyID" ColumnName="FamilyID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

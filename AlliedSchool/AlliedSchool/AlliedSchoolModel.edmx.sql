@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 12/15/2012 19:42:43
--- Generated from EDMX file: D:\Puthay Kaam\Meray Anokhay Projects\AlliedSchool\AlliedSchool\AlliedSchoolModel.edmx
+-- Date Created: 01/19/2013 16:15:03
+-- Generated from EDMX file: D:\Puthay Kaam\GitHub\AlliedSchool\AlliedSchool\AlliedSchool\AlliedSchoolModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -54,7 +54,11 @@ CREATE TABLE [dbo].[Students] (
     [FirstName] nvarchar(max)  NOT NULL,
     [LastName] nvarchar(max)  NOT NULL,
     [StandardId] int  NOT NULL,
-    [FullName] nvarchar(max)  NOT NULL
+    [FullName] nvarchar(max)  NOT NULL,
+    [FatherName] nvarchar(max)  NOT NULL,
+    [Address] nvarchar(max)  NOT NULL,
+    [PhoneNumber] nvarchar(max)  NOT NULL,
+    [FamilyID] nvarchar(max)  NOT NULL
 );
 GO
 

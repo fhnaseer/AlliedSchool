@@ -42,6 +42,11 @@ namespace AlliedSchool.ViewModels
                 }
                 return _classesList;
             }
+            set
+            {
+                _classesList = value;
+                OnPropertyChanged("ClassesList");
+            }
         }
 
         private Standard _selectedClass;
@@ -104,16 +109,18 @@ namespace AlliedSchool.ViewModels
         {
             SchoolContext.Standards.Remove(SelectedClass);
             SchoolContext.SaveChanges();
-            ClassesList.Remove(SelectedClass);
-            SchoolContext.SaveChanges();
             Clear();
+            ClassesList = null;
         }
 
         private void Update()
         {
             SelectedClass.ClassName = ClassName;
             SelectedClass.SectionName = SectionName;
+            SelectedClass.FullName = ClassName + " " + SectionName;
             SchoolContext.SaveChanges();
+            ClassesList = null;
+            OnPropertyChanged("SelectedClass");
         }
         #endregion
     }

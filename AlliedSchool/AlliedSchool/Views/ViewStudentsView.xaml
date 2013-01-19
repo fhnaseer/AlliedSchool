@@ -22,12 +22,17 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Margin="5" Content="Select Student" />
-            <ComboBox Grid.Row="0" Grid.Column="1" Margin="5"
-                      ItemsSource="{Binding StudentsList}"
-                      DisplayMemberPath="FullName"
-                      SelectedValue="{Binding SelectedStudent, Mode=TwoWay}" />
+            <DataGrid Grid.Row="0" Grid.Column="1" Margin="5" ItemsSource="{Binding StudentsList}" SelectedItem="{Binding SelectedStudent}" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" Height="150">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding FullName}" Header="Student Name" Width="*" />
+                    <DataGridTextColumn Binding="{Binding FatherName}" Header="Father Name" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
             <Label Grid.Row="1" Grid.Column="0" Margin="5" Content="First Name" />
             <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
             <Label Grid.Row="2" Grid.Column="0" Margin="5" Content="Last Name" />
@@ -37,6 +42,12 @@
                       ItemsSource="{Binding ClassesList}"
                       DisplayMemberPath="FullName"
                       SelectedValue="{Binding SelectedClass, Mode=TwoWay}" />
+            <Label Grid.Row="4" Grid.Column="0" Margin="5" Content="Father Name" />
+            <TextBox Grid.Row="4" Grid.Column="1" Margin="5" Text="{Binding FatherName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            <Label Grid.Row="5" Grid.Column="0" Margin="5" Content="Address" />
+            <TextBox Grid.Row="5" Grid.Column="1" Margin="5" Text="{Binding Address, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            <Label Grid.Row="6" Grid.Column="0" Margin="5" Content="Phone Number" />
+            <TextBox Grid.Row="6" Grid.Column="1" Margin="5" Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
         </Grid>
     </DockPanel>
 </UserControl>

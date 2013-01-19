@@ -31,6 +31,40 @@ namespace AlliedSchool.ViewModels
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        private string FamilyID { get; set; }
+
+        private string _fatherName;
+        public string FatherName
+        {
+            get { return _fatherName; }
+            set
+            {
+                _fatherName = value;
+                OnPropertyChanged("FatherName");
+            }
+        }
+
+        private string _address;
+        public string Address
+        {
+            get { return _address; }
+            set
+            {
+                _address = value;
+                OnPropertyChanged("Address");
+            }
+        }
+
+        private string _phoneNumber;
+        public string PhoneNumber
+        {
+            get { return _phoneNumber; }
+            set
+            {
+                _phoneNumber = value;
+                OnPropertyChanged("PhoneNumber");
+            }
+        }
 
         private List<Standard> _classesList;
         public List<Standard> ClassesList
@@ -61,6 +95,44 @@ namespace AlliedSchool.ViewModels
             }
         }
 
+        private List<Student> _studentsList;
+        public List<Student> StudentsList
+        {
+            get
+            {
+                if (_studentsList == null)
+                {
+                    _studentsList = new List<Student>();
+                    foreach (var student in SchoolContext.Students)
+                        _studentsList.Add(student);
+                }
+                return _studentsList;
+            }
+            set
+            {
+                _studentsList = value;
+                OnPropertyChanged("StudentsList");
+            }
+        }
+
+        private Student _selectedStudent;
+        public Student SelectedStudent
+        {
+            get { return _selectedStudent; }
+            set
+            {
+                if (_selectedStudent != value)
+                {
+                    _selectedStudent = value;
+                    FatherName = _selectedStudent.FatherName;
+                    Address = _selectedStudent.Address;
+                    PhoneNumber = _selectedStudent.PhoneNumber;
+                    FamilyID = _selectedStudent.FamilyID;
+                    OnPropertyChanged("SelectedStudent");
+                }
+            }
+        }
+
         #region CommandBindings
         private ICommand _addCommand;
         public ICommand AddCommand
@@ -70,7 +142,8 @@ namespace AlliedSchool.ViewModels
 
         private bool CanAdd()
         {
-            return (string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(LastName) ? false : true);
+            return (string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(LastName) || SelectedClass == null ||
+                string.IsNullOrEmpty(FatherName) || string.IsNullOrEmpty(Address) || string.IsNullOrEmpty(PhoneNumber) ? false : true);
         }
 
         private void Add()
@@ -79,9 +152,16 @@ namespace AlliedSchool.ViewModels
             student.FirstName = FirstName;
             student.LastName = LastName;
             student.FullName = FirstName + " " + LastName;
+            student.FatherName = FatherName;
+            student.Address = Address;
+            student.PhoneNumber = PhoneNumber;
+            if (string.IsNullOrEmpty(FamilyID))
+                FamilyID = FatherName + Address;
+            student.FamilyID = FamilyID;
             student.StandardId = SelectedClass.Id;
             SchoolContext.Students.Add(student);
             SchoolContext.SaveChanges();
+            StudentsList = null;
         }
         #endregion
     }
