@@ -29,8 +29,8 @@ namespace AlliedSchool.ViewModels
         #endregion
 
         public string ItemName { get; set; }
-        public Int64 Price { get; set; }
-        public Int64 Quantity { get; set; }
+        public int Price { get; set; }
+        public int Quantity { get; set; }
 
         #region CommandBindings
         private ICommand _addCommand;
@@ -41,7 +41,7 @@ namespace AlliedSchool.ViewModels
 
         private bool CanAdd()
         {
-            return (string.IsNullOrEmpty(ItemName) || Price == default(Int64) || Quantity == default(Int64)) ? false : true;
+            return (string.IsNullOrEmpty(ItemName) || Price == default(long) || Quantity == default(long)) ? false : true;
         }
 
         private void Add()

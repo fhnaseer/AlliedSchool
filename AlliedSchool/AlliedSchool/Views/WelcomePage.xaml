@@ -25,6 +25,7 @@
             </StackPanel>
             <StackPanel>
                 <Button Content="Purchase Item" Command="{Binding PurchaseItemCommand}" />
+                <Button Content="Purchase History" Command="{Binding PurchaseHistoryCommand}" />
             </StackPanel>
         </StackPanel>
     </DockPanel>

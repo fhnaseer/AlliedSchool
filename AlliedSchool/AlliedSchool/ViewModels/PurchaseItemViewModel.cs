@@ -69,8 +69,8 @@ namespace AlliedSchool.ViewModels
             }
         }
 
-        private Int64 _price;
-        public Int64 Price
+        private int _price;
+        public int Price
         {
             get { return _price; }
             set
@@ -80,14 +80,17 @@ namespace AlliedSchool.ViewModels
             }
         }
 
-        private Int64 _quantity;
-        public Int64 Quantity
+        private int _quantity;
+        public int Quantity
         {
             get { return _quantity; }
             set
             {
                 _quantity = value;
-                Price = SelectedItem.Price * Quantity;
+                if (SelectedItem != null)
+                    Price = SelectedItem.Price * Quantity;
+                else
+                    Price = default(int);
                 OnPropertyChanged("Quantity");
                 OnPropertyChanged("Price");
             }
@@ -116,7 +119,9 @@ namespace AlliedSchool.ViewModels
             shoppingItem.Quantity = Quantity;
             shoppingItem.Price = Price;
             shoppingItem.IsPaid = IsPaid;
+            shoppingItem.ItemName = SelectedItem.Name;
             SchoolContext.ShoppingItems.Add(shoppingItem);
+            SelectedItem.Quantity -= Quantity;
             SchoolContext.SaveChanges();
             Clear();
         }

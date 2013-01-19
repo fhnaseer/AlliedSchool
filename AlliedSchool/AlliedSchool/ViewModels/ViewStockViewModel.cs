@@ -60,9 +60,9 @@ namespace AlliedSchool.ViewModels
             }
         }
 
-        public Int64 Price
+        public int Price
         {
-            get { return (SelectedItem == null) ? default(Int64) : SelectedItem.Price; }
+            get { return (SelectedItem == null) ? default(int) : SelectedItem.Price; }
             set
             {
                 SelectedItem.Price = value;
@@ -70,9 +70,9 @@ namespace AlliedSchool.ViewModels
             }
         }
 
-        public Int64 Quantity
+        public int Quantity
         {
-            get { return (SelectedItem == null) ? default(Int64) : SelectedItem.Quantity; }
+            get { return (SelectedItem == null) ? default(int) : SelectedItem.Quantity; }
             set
             {
                 SelectedItem.Quantity = value;
@@ -89,7 +89,7 @@ namespace AlliedSchool.ViewModels
 
         private bool CanUpdate()
         {
-            return (string.IsNullOrEmpty(ItemName) || Price == default(Int64) ? false : true);
+            return (string.IsNullOrEmpty(ItemName) || Price == default(long) ? false : true);
         }
 
         private void Update()

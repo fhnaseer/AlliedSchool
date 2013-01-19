@@ -191,6 +191,7 @@ namespace AlliedSchool.ViewModels
             SelectedStudent.PhoneNumber = PhoneNumber;
             SelectedStudent.FamilyID = FatherName + Address;
             SelectedStudent.StandardId = SelectedClass.Id;
+            SelectedStudent.ClassName = SelectedClass.FullName;
             SchoolContext.SaveChanges();
             OnPropertyChanged("SelectedStudent");
         }

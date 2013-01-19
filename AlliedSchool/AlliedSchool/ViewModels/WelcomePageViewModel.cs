@@ -65,6 +65,12 @@ namespace AlliedSchool.ViewModels
             get { return _purchaseItemCommand ?? (_purchaseItemCommand = new RelayCommand(PurchaseItem)); }
         }
 
+        private ICommand _purchaseHistoryCommand;
+        public ICommand PurchaseHistoryCommand
+        {
+            get { return _purchaseHistoryCommand ?? (_purchaseHistoryCommand = new RelayCommand(PurchaseHistory)); }
+        }
+
         private ICommand _addClassCommand;
         public ICommand AddClassCommand
         {
@@ -101,6 +107,11 @@ namespace AlliedSchool.ViewModels
         public void PurchaseItem()
         {
             MainWindow.DataContext = new PurchaseItemViewModel(MainWindow, SchoolContext);
+        }
+
+        public void PurchaseHistory()
+        {
+            MainWindow.DataContext = new PurchaseHistoryViewModel(MainWindow, SchoolContext);
         }
 
         public void AddClass()

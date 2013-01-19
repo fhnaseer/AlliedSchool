@@ -17,9 +17,10 @@ namespace AlliedSchool
         public int ShoppingId { get; set; }
         public int StudentId { get; set; }
         public int ItemId { get; set; }
-        public long Quantity { get; set; }
-        public long Price { get; set; }
+        public int Quantity { get; set; }
+        public int Price { get; set; }
         public bool IsPaid { get; set; }
+        public string ItemName { get; set; }
     
         public virtual Student Student { get; set; }
         public virtual Item Item { get; set; }

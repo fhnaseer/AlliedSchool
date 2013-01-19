@@ -42,6 +42,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding FullName}" Header="Student Name" Width="*" />
                     <DataGridTextColumn Binding="{Binding FatherName}" Header="Father Name" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding ClassName}" Header="Class Name" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
             <Label Grid.Row="4" Grid.Column="0" Margin="5" Content="Father Name" />

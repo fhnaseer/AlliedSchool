@@ -9,7 +9,6 @@
         <Label Margin="5" DockPanel.Dock="Top" Content="Purchase Item" FontSize="16" />
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" FlowDirection="RightToLeft" Margin="5">
             <Button Content="Purchase" Command="{Binding PurchaseCommand}" />
-            <Button Content="Delete" Command="{Binding DeleteCommand}" />
             <Button Content="Back" Command="{Binding BackCommand}" />
         </StackPanel>
         <Grid>
@@ -35,6 +34,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding FullName}" Header="Student Name" Width="*" />
                     <DataGridTextColumn Binding="{Binding FatherName}" Header="Father Name" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding ClassName}" Header="Class Name" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
             <Label Grid.Row="3" Grid.Column="0" Margin="5" Content="Quantity" />

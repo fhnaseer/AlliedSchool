@@ -59,5 +59,23 @@ namespace AlliedSchool.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .25.
+        /// </summary>
+        internal static string Discount {
+            get {
+                return ResourceManager.GetString("Discount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1800.
+        /// </summary>
+        internal static string Fees {
+            get {
+                return ResourceManager.GetString("Fees", resourceCulture);
+            }
+        }
     }
 }

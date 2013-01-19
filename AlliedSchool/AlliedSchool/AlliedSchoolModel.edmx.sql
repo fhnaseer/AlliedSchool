@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 01/19/2013 17:34:28
+-- Date Created: 01/19/2013 20:19:52
 -- Generated from EDMX file: D:\Puthay Kaam\GitHub\AlliedSchool\AlliedSchool\AlliedSchool\AlliedSchoolModel.edmx
 -- --------------------------------------------------
 
@@ -58,7 +58,8 @@ CREATE TABLE [dbo].[Students] (
     [FatherName] nvarchar(max)  NOT NULL,
     [Address] nvarchar(max)  NOT NULL,
     [PhoneNumber] nvarchar(max)  NOT NULL,
-    [FamilyID] nvarchar(max)  NOT NULL
+    [FamilyID] nvarchar(max)  NOT NULL,
+    [ClassName] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -67,9 +68,10 @@ CREATE TABLE [dbo].[ShoppingItems] (
     [ShoppingId] int IDENTITY(1,1) NOT NULL,
     [StudentId] int  NOT NULL,
     [ItemId] int  NOT NULL,
-    [Quantity] bigint  NOT NULL,
-    [Price] bigint  NOT NULL,
-    [IsPaid] bit  NOT NULL
+    [Quantity] int  NOT NULL,
+    [Price] int  NOT NULL,
+    [IsPaid] bit  NOT NULL,
+    [ItemName] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -77,8 +79,8 @@ GO
 CREATE TABLE [dbo].[Items] (
     [ItemId] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
-    [Price] bigint  NOT NULL,
-    [Quantity] bigint  NOT NULL
+    [Price] int  NOT NULL,
+    [Quantity] int  NOT NULL
 );
 GO
 

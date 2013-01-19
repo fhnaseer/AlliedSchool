@@ -28,6 +28,7 @@ namespace AlliedSchool
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public string FamilyID { get; set; }
+        public string ClassName { get; set; }
     
         public virtual ICollection<ShoppingItem> ShoppingItems { get; set; }
         public virtual Standard Standard { get; set; }

@@ -127,7 +127,6 @@ namespace AlliedSchool.ViewModels
                     FatherName = _selectedStudent.FatherName;
                     Address = _selectedStudent.Address;
                     PhoneNumber = _selectedStudent.PhoneNumber;
-                    FamilyID = _selectedStudent.FamilyID;
                     OnPropertyChanged("SelectedStudent");
                 }
             }
@@ -155,10 +154,9 @@ namespace AlliedSchool.ViewModels
             student.FatherName = FatherName;
             student.Address = Address;
             student.PhoneNumber = PhoneNumber;
-            if (string.IsNullOrEmpty(FamilyID))
-                FamilyID = FatherName + Address;
-            student.FamilyID = FamilyID;
+            student.FamilyID = FatherName + Address;
             student.StandardId = SelectedClass.Id;
+            student.ClassName = SelectedClass.FullName;
             SchoolContext.Students.Add(student);
             SchoolContext.SaveChanges();
             StudentsList = null;

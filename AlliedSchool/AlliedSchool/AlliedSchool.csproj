@@ -107,6 +107,7 @@
     <Compile Include="ViewModels\AddClassViewModel.cs" />
     <Compile Include="ViewModels\AddItemViewModel.cs" />
     <Compile Include="ViewModels\AddStudentViewModel.cs" />
+    <Compile Include="ViewModels\PurchaseHistoryViewModel.cs" />
     <Compile Include="ViewModels\PurchaseItemViewModel.cs" />
     <Compile Include="ViewModels\ViewClassViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
@@ -124,6 +125,9 @@
     </Compile>
     <Compile Include="Views\PurchaseItemView.xaml.cs">
       <DependentUpon>PurchaseItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PurchaseHistoryView.xaml.cs">
+      <DependentUpon>PurchaseHistoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewClassView.xaml.cs">
       <DependentUpon>ViewClassView.xaml</DependentUpon>
@@ -162,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PurchaseItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PurchaseHistoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

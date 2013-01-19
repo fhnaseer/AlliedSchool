@@ -29,6 +29,9 @@
         <DataTemplate DataType="{x:Type vm:AddClassViewModel}">
             <v:AddClassView />
         </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:PurchaseHistoryViewModel}">
+            <v:PurchaseHistoryView />
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <ContentControl Content="{Binding}" />
