@@ -25,7 +25,9 @@ namespace AlliedSchool.ViewModels
         #region BaseClass Interface
         public override void Clear()
         {
-            throw new NotImplementedException();
+            SelectedItem = null;
+            SelectedStudent = null;
+            Price = Quantity = 0;
         }
 
         public override void Back()
@@ -46,7 +48,6 @@ namespace AlliedSchool.ViewModels
                 if (_selectedItem != value)
                 {
                     _selectedItem = value;
-                    OnPropertyChanged("ItemName");
                     OnPropertyChanged("Price");
                     OnPropertyChanged("Quantity");
                     OnPropertyChanged("SelectedItem");
@@ -65,16 +66,6 @@ namespace AlliedSchool.ViewModels
                     _selectedStudent = value;
                     OnPropertyChanged("SelectedStudent");
                 }
-            }
-        }
-
-        public string ItemName
-        {
-            get { return (SelectedItem == null) ? string.Empty : SelectedItem.Name; }
-            set
-            {
-                SelectedItem.Name = value;
-                OnPropertyChanged("ItemName");
             }
         }
 
@@ -102,6 +93,8 @@ namespace AlliedSchool.ViewModels
             }
         }
 
+        public bool IsPaid { get; set; }
+
         #region CommandBindings
         private ICommand _purchaseCommand;
         public ICommand PurchaseCommand
@@ -111,7 +104,7 @@ namespace AlliedSchool.ViewModels
 
         private bool CanPurchase()
         {
-            return true;
+            return (SelectedStudent == null || SelectedItem == null) ? false : true;
         }
 
         private void Purchase()
@@ -120,9 +113,12 @@ namespace AlliedSchool.ViewModels
             shoppingItem.ItemId = SelectedItem.ItemId;
             shoppingItem.StudentId = SelectedStudent.StudentId;
             shoppingItem.Student = SelectedStudent;
+            shoppingItem.Quantity = Quantity;
+            shoppingItem.Price = Price;
+            shoppingItem.IsPaid = IsPaid;
             SchoolContext.ShoppingItems.Add(shoppingItem);
             SchoolContext.SaveChanges();
-            SelectedItem = null;
+            Clear();
         }
         #endregion
     }

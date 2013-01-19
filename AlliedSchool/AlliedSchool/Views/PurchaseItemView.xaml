@@ -23,6 +23,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Margin="5" Content="Select Item" />
             <ComboBox Grid.Row="0" Grid.Column="1" Margin="5"
@@ -36,12 +37,11 @@
                     <DataGridTextColumn Binding="{Binding FatherName}" Header="Father Name" Width="*"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <Label Grid.Row="2" Grid.Column="0" Margin="5" Content="Item Name" />
-            <TextBox Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding ItemName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
             <Label Grid.Row="3" Grid.Column="0" Margin="5" Content="Quantity" />
             <TextBox Grid.Row="3" Grid.Column="1" Margin="5" Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
             <Label Grid.Row="4" Grid.Column="0" Margin="5" Content="Price" />
             <TextBox Grid.Row="4" Grid.Column="1" Margin="5" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            <CheckBox Grid.Row="5" Grid.Column="1" Margin="5" Content="Paid" IsChecked="{Binding IsPaid}" />
         </Grid>
     </DockPanel>
 </UserControl>

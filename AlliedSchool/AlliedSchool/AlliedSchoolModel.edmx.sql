@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 01/19/2013 16:15:03
+-- Date Created: 01/19/2013 17:34:28
 -- Generated from EDMX file: D:\Puthay Kaam\GitHub\AlliedSchool\AlliedSchool\AlliedSchool\AlliedSchoolModel.edmx
 -- --------------------------------------------------
 
@@ -68,7 +68,8 @@ CREATE TABLE [dbo].[ShoppingItems] (
     [StudentId] int  NOT NULL,
     [ItemId] int  NOT NULL,
     [Quantity] bigint  NOT NULL,
-    [Price] bigint  NOT NULL
+    [Price] bigint  NOT NULL,
+    [IsPaid] bit  NOT NULL
 );
 GO
 

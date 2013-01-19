@@ -46,6 +46,7 @@
     <Property Name="ItemId" Type="int" Nullable="false" />
     <Property Name="Quantity" Type="bigint" Nullable="false" />
     <Property Name="Price" Type="bigint" Nullable="false" />
+    <Property Name="IsPaid" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Items">
     <Key>
@@ -150,6 +151,7 @@
           <Property Type="Int32" Name="ItemId" Nullable="false" />
           <Property Type="Int64" Name="Quantity" Nullable="false" />
           <Property Type="Int64" Name="Price" Nullable="false" />
+          <Property Type="Boolean" Name="IsPaid" Nullable="false" />
         </EntityType>
         <Association Name="StudentShoppingItem">
           <End Type="AlliedSchoolModel.Student" Role="Student" Multiplicity="1" />
@@ -236,6 +238,7 @@
           <ScalarProperty Name="ItemId" ColumnName="ItemId" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
