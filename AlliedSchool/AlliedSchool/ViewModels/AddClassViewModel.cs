@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace AlliedSchool.ViewModels
@@ -68,8 +69,27 @@ namespace AlliedSchool.ViewModels
             standard.ClassName = ClassName;
             standard.SectionName = SectionName;
             standard.FullName = ClassName + " " + SectionName;
-            SchoolContext.Standards.Add(standard);
-            SchoolContext.SaveChanges();
+            try
+            {
+                SchoolContext.Standards.Add(standard);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            try
+            {
+                SchoolContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.InnerException.Message);
+            }
+            
         }
         #endregion
     }
